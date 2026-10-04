@@ -1,0 +1,63 @@
+<p>orders works!</p>
+<div class="p-6">
+
+  <h2 class="text-xl font-semibold mb-4">Orders</h2>
+
+
+<button
+  class="border rounded px-3 py-2 mb-4"
+  (click)="testMergeMap()">
+  Test MergeMap
+</button>
+
+
+  <table class="w-full border">
+
+    <thead>
+      <tr>
+        <th class="border p-2">Order ID</th>
+        <th class="border p-2">Table</th>
+        <th class="border p-2">Item</th>
+        <th class="border p-2">Quantity</th>
+        <th class="border p-2">Status</th>
+        <th class="border p-2">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let order of orders">
+
+        <td class="border p-2">
+          {{ order.id }}
+        </td>
+
+        <td class="border p-2">
+          {{ order.tableNo }}
+        </td>
+
+        <td class="border p-2">
+          {{ order.itemName }}
+        </td>
+
+        <td class="border p-2">
+          {{ order.quantity }}
+        </td>
+
+        <td class="border p-2">
+          {{ order.status }}
+        </td>
+<td>
+  <button
+    type="button"
+    (click)="sendToKitchen(order)"
+    class="border px-3 py-1 rounded"
+  >
+    Send to Kitchen
+  </button>
+</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>

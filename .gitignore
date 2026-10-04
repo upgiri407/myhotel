@@ -42,3 +42,11 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Dependencies in all folders
+node_modules/
+
+# Local environment files
+.env
+.env.*
+!.env.example

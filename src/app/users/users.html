@@ -1,0 +1,97 @@
+<p>
+    Selected Date: {{ selectedDate }}
+</p>
+<p appHighlight>
+  Hello Umesh
+</p>
+<form [formGroup]="usersForm">
+<button
+  type="button"
+  (click)="addUser()"
+  class="border rounded px-3 py-2 mt-3"
+>
+  Add User
+</button>
+<div class="mb-4">
+    <label>Department</label>
+
+    <input
+      type="text"
+      formControlName="department"
+      class="border rounded px-3 py-2"
+    >
+  </div>
+  <div class="overflow-x-auto">
+  <table class="min-w-full text-left">
+
+    <thead class="bg-slate-100 text-slate-700">
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody formArrayName="users">
+
+      <tr
+        *ngFor="let userGroup of usersForm.controls.users.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <td>
+          <input type="text" formControlName="name">
+        </td>
+
+        <td>
+          <input type="text" formControlName="username">
+        </td>
+
+        <td>
+          <input type="email" formControlName="email">
+        </td>
+
+        <td>
+          <input type="text" formControlName="phone">
+        </td>
+
+        <td>
+          <input type="text" formControlName="website">
+        </td>
+        <td>
+            <button (click)="removeUser(i)">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+</form>
+<div class="overflow-x-auto">
+    <table class="table min-w-full text-left">
+        <thead class="bg-slate-100 text-slate-700">
+            <tr>
+                <th>name</th>
+                <th>username</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>website</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList$ | async">
+                <td>{{ user.name }}</td>
+                <td>{{ user.username | nameFormatType }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.website }}</td>
+                <td>
+                    <button (click)="viewUser(user.id)">View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
