@@ -8,11 +8,11 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-  user: 'umesh',
-  host: 'localhost',
-  database: 'db_hotel',
-  password: 'pg@admin',
-  port: 5432
+  user: process.env.PGUSER || 'umesh',
+  host: process.env.PGHOST || 'localhost',
+  database: process.env.PGDATABASE || 'db_hotel',
+  password: process.env.PGPASSWORD,
+  port: Number(process.env.PGPORT || 5432)
 });
 
 pool.connect()

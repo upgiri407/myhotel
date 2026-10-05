@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class MenuApiService {
 
   // Backend endpoint that searches menu items based on query parameter.
-  private apiUrl = 'http://localhost:3000/api/menu/search';
+  //private apiUrl = 'http://localhost:3000/api/menu/search';
+  private apiUrl = 'http://localhost:3001/api/menu/search';//for docker
 
   constructor(private http: HttpClient) {}
 
