@@ -10,7 +10,8 @@ export class MenuApiService {
 
   // Backend endpoint that searches menu items based on query parameter.
   //private apiUrl = 'http://localhost:3000/api/menu/search';
-  private apiUrl = 'http://localhost:3001/api/menu/search';//for docker
+  //private apiUrl = 'http://localhost:3001/api/menu/search';//for docker
+  private apiUrl = '/api/menu/search';
 
   constructor(private http: HttpClient) {}
 
